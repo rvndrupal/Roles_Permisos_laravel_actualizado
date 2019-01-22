@@ -213,7 +213,15 @@ desired effect
                 </div>
                 <div class="pull-right">
                     {{-- Salida --}}
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    <a class="dropdown-item btn btn-default btn-flat" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Salir') }}
+                                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                    </form>
+                  {{--  <a href="#" class="btn btn-default btn-flat">Sign out</a>  --}}
                 </div>
               </li>
             </ul>
