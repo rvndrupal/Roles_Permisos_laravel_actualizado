@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('admin', function () {
     return view('admin.panel');
-});
+})->middleware('auth')->name('admin.page');
 
 
 //Auth::routes();
