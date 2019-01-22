@@ -3,13 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Productos
-                    @can('products.create')
-                    <a href="{{ route('products.create') }}" class="btn btn-sm btn-primary pull-right">Nuevo</a>
-                    @endcan
+                    Usuarios
+                   
                 </div>
 
                 <div class="panel-body">
@@ -23,40 +21,40 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($products as $producto )
+                            @foreach ($users as $user )
                             <tr>
-                                <td>{{ $producto->id }}</td>
-                                <td>{{ $producto->name }}</td>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
                                 <td width="10px">
-                                @can('products.show')
-                                    <a href="{{ route('products.show', $producto->id) }}" class="btn btn-sm btn-default">Ver</a>
+                                @can('users.show')
+                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-default">Ver</a>
                                 @endcan
                                 </td>
                                 <td width="10px">
-                                @can('products.edit')
-                                    <a href="{{ route('products.edit', $producto->id) }}" class="btn btn-sm btn-dark">Editar</a>
+                                @can('users.edit')
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-default">Editar</a>
                                 @endcan
                                 </td>
                                 <td width="10px">
-                                @can('products.destroy')
-
-                                {!! Form::open(['route'=>['products.destroy', $producto->id],
+                                @can('users.destroy')
+                                    
+                                {!! Form::open(['route'=>['users.destroy', $user->id],
                                 'method'=>'DELETE']) !!}
                                 <button class="btn btn-sm btn-danger">Eliminar</button>
-
-                                {!! Form::close() !!}
-
+                                
+                                {!! Form::close() !!}                               
+                                    
                                 @endcan
                                 </td>
 
                             </tr>
-
+                                
                             @endforeach
                         </tbody>
                     </table>
 
-                    {{ $products->render() }}
-
+                    {{ $users->render() }}
+                   
                 </div>
             </div>
         </div>
