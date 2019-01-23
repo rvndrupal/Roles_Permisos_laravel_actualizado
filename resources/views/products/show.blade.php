@@ -1,4 +1,17 @@
-@extends('layouts.app')
+@extends('admin.layout')
+
+@section('page-header')
+    <section class="content-header">
+            <h1>
+                    Mostrar
+                    <small>Producto</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="{{ route('products.index') }}"><i class="fa fa-dashboard"></i> Lista</a></li>
+                    <li class="active">Productos</li>
+                    </ol>
+    </section>
+@endsection
 
 @section('content')
 <div class="container">
